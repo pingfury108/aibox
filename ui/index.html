@@ -27,20 +27,20 @@
 		<div class="row">
 			<div class="col-sm-2"></div>
 			<div class="col-sm-10">
-				<Button class="btn btn-primary" onclick="reverseText()">润色文本</button>
+				<Button class="btn btn-primary" onclick="rewriteText()">润色文本</button>
 			</div>
 		</div>
 
 		<script>
-			function reverseText() {
-				// 获取第一个输入框中的内容
-				var inputText = document.getElementById("input-text").value;
+            const { invoke } = window.__TAURI__.tauri
+			function rewriteText() {
+              var inputText = document.getElementById("input-text").value;
+              invoke('rewrite', { text: inputText })
+                .then((response) => {
+                  const event = JSON.parse(response);
+                  document.getElementById("output-text").value = event.choices[0].message.content;
+                })
 
-				// 翻转文本
-				var reversedText = inputText.split("").reverse().join("");
-
-				// 将翻转后的文本填入第二个输入框中
-				document.getElementById("output-text").value = reversedText;
 			}
 		</script>
 	</div>
