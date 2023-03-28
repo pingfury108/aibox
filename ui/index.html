@@ -3,49 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ai box</title>
+    <title>Ai box</title>
     <link rel="stylesheet" href="./css/bootstrap.min.css">
   </head>
   <body>
-    <div class="container mt-5">
-	  <h6 class="text-center mb-4">文本润色</h6>
-      <div class="mb-3">
-        <label for="input-key" class="form-label">API2D AIP KEY:</label>
-        <input type="password" class="form-control" id="input-key" onchange="inputChanged()">
-      </div>
-      <div class="row">
-		<div class="col-sm-5">
-		  <div class="mb-3">
-			<label for="input-text" class="form-label">输入文本：</label>
-			<textarea id="input-text" class="form-control" rows="10"></textarea>
-		  </div>
-		</div>
-		<div class="col-sm-2 d-flex align-items-center justify-content-center">
-		  <button class="btn btn-primary" onclick="rewriteText()">润色文本</button>
-		</div>
-		<div class="col-sm-5">
-		  <div class="mb-3">
-			<label for="output-text" class="form-label">润色后的文本：</label>
-			<textarea id="output-text" class="form-control" rows="10"></textarea>
-		  </div>
-		</div>
-	  </div>
-	</div>
-	<script src="./js/bootstrap.bundle.min.js"></script>
-    <script>
-     const { invoke } = window.__TAURI__.tauri;
-     var api2d_api_key = "";
-     function inputChanged() {
-       api2d_api_key = document.getElementById("input-key").value;
-     }
-	 function rewriteText() {
-       var inputText = document.getElementById("input-text").value;
-       invoke('rewrite', { text: inputText, apikey: api2d_api_key })
-         .then((response) => {
-           const event = JSON.parse(response);
-           document.getElementById("output-text").value = event.choices[0].message.content;
-         })
-     }
-    </script>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
