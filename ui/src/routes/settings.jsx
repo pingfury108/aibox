@@ -1,7 +1,8 @@
 
 export default function Settings() {
     return (
-            <div>
+            <div class="container">
+            <h6 class="text-center mb-4">设置</h6>
             <label for="input-basic-url" class="form-label">OpenAI AIP Basic url :</label>
             <input type="text" class="form-control" id="input-basic-rul" onchange="inputChanged()" />
 

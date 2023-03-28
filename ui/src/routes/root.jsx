@@ -1,23 +1,21 @@
 import { Outlet, Link } from "react-router-dom";
 export default function Root() {
     return (
-            <>
-            <div id="sidebar">
-            <h1> Aibox Contacts</h1>
-            <nav>
-            <ul>
-            <li>
-            <Link to={`/setting`}>OpenAI API 设置</Link>
+
+            <div class="row">
+            <div id="sidebar" class="bg-light col-lg-3 col-md-4 col-sm-12">
+            <ul class="nav flex-column">
+            <li class="nav-item ">
+            <Link class="nav-link text-reset" to={`/setting`}>OpenAI API 设置</Link>
             </li>
-            <li>
-            <Link to={`/rewrite`}>文本润色</Link>
+            <li class="nav-item">
+            <Link class="nav-link text-reset" to={`/rewrite`}>文本润色</Link>
             </li>
             </ul>
-            </nav>
             </div>
-            <div id="detail">
+            <div id="detail" class="col-lg-9 col-md-8 col-sm-12">
             <Outlet />
             </div>
-            </>
+            </div>
     );
 }
