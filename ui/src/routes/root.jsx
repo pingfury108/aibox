@@ -3,7 +3,7 @@ export default function Root() {
     return (
 
             <div class="row">
-            <div id="sidebar" class="bg-light col-lg-3 col-md-4 col-sm-12">
+            <div id="sidebar" class="bg-light col-lg-2 col-md-3 col-sm-12">
             <ul class="nav flex-column">
             <li class="nav-item ">
             <Link class="nav-link text-reset" to={`/setting`}>OpenAI API 设置</Link>
